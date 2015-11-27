@@ -72,7 +72,7 @@ class FreehandDrawController : NSObject {
     }
     
     private func continueAtPoint(point: CGPoint, velocity: CGPoint) {
-        let segmentWidth = modulatedWidth(self.width, velocity, self.lastVelocity, self.lastWidth ?? self.width)
+        let segmentWidth = modulatedWidth(self.width, velocity: velocity, previousVelocity: self.lastVelocity, previousWidth: self.lastWidth ?? self.width)
         let segment = Segment(a: self.lastPoint, b: point, width: segmentWidth)
         
         let lineCommand = LineDrawCommand(current: segment, previous: lastSegment, width: segmentWidth, color: self.color)

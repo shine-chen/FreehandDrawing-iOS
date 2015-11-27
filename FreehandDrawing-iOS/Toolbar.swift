@@ -28,7 +28,7 @@ class Toolbar : UIView {
     typealias ColorChangeHandler = UIColor -> Void
     typealias UndoHandler = Void->Void
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -43,9 +43,9 @@ class Toolbar : UIView {
         
         loadedView.frame = self.frame;
         loadedView.autoresizingMask = self.autoresizingMask;
-        loadedView.setTranslatesAutoresizingMaskIntoConstraints(self.translatesAutoresizingMaskIntoConstraints())
+        loadedView.translatesAutoresizingMaskIntoConstraints = self.translatesAutoresizingMaskIntoConstraints
         
-        for constraint in self.constraints() as! [NSLayoutConstraint] {
+        for constraint in self.constraints {
             let firstItem: AnyObject = constraint.firstItem as! NSObject == self ? loadedView : constraint.firstItem
             
             

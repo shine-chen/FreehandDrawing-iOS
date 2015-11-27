@@ -46,7 +46,7 @@ struct LineDrawCommand : DrawCommand {
     private func configure(canvas: Canvas) {
         CGContextSetStrokeColorWithColor(canvas.context, self.color.CGColor)
         CGContextSetLineWidth(canvas.context, self.width)
-        CGContextSetLineCap(canvas.context, kCGLineCapRound)
+        CGContextSetLineCap(canvas.context, CGLineCap.Round)
     }
     
     private func drawLine(canvas: Canvas) {

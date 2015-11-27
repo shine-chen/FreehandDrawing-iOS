@@ -29,7 +29,7 @@ class DrawView : UIView, Canvas, DrawCommandReceiver {
     // MARK: Canvas
     
     var context: CGContextRef {
-        return UIGraphicsGetCurrentContext()
+        return UIGraphicsGetCurrentContext()!
     }
     
     func reset() {
@@ -67,7 +67,7 @@ class DrawView : UIView, Canvas, DrawCommandReceiver {
         }
     
         // Execute draw code
-        code(context: context)
+        code(context: context!)
         
         // Grab updated buffer and return it
         let image = UIGraphicsGetImageFromCurrentImageContext()

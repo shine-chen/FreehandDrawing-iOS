@@ -30,8 +30,8 @@ func modulatedWidth(width: CGFloat, velocity: CGPoint, previousVelocity: CGPoint
     let previousSpeed = previousVelocity.length() / velocityAdjustement
     
     let modulated = width / (0.6 * speed + 0.4 * previousSpeed)
-    let limited = clamp(modulated, 0.75 * previousWidth, 1.25 * previousWidth)
-    let final = clamp(limited, 0.2*width, width)
+    let limited = clamp(modulated, min: 0.75 * previousWidth, max: 1.25 * previousWidth)
+    let final = clamp(limited, min: 0.2*width, max: width)
     
     return final
 }
